@@ -3,7 +3,12 @@
  * @author Yaroslav Pogrebnyak <yyyaroslav@gmail.com>
  */
 
-var DynRequire = require('../lib');
+var _ = require('lodash'),
+    DynRequire = require('../lib');
+
+/* constants */
+
+var EXPECTED_MODULES = ['a', 'child/a', 'another-child/c'];
 
 /* module exports */
 
@@ -18,9 +23,8 @@ module.exports = {
             async: false
         });
 
-        console.log(modules.requireAllEx());
-
-        console.log(modules.require('child/a'));
+        test.ok(_.isEqual([], _.difference( _.keys(modules.requireAllEx()), EXPECTED_MODULES)), 'All modules are properly loaded');
+        test.equal('child hello', modules.require('child/a' ), 'Can require child module');
 
         test.done();
     },
@@ -34,12 +38,13 @@ module.exports = {
             async: true
         });
 
-        modules.on('next', function(a,b) {
-            console.log("next", a,b);
+        modules.on('next', function(relPath, m) {
+            test.ok(m, relPath + ' module loaded');
+            test.ok( _.contains(EXPECTED_MODULES, relPath), 'Loaded expected module ' + relPath );
         });
 
         modules.on('done', function(x) {
-            console.log('done', x);
+            test.ok(_.isEqual([], _.difference( _.keys(modules.requireAllEx()), EXPECTED_MODULES)), 'All modules are properly loaded');
             test.done();
         });
     }
