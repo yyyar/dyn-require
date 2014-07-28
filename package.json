@@ -1,0 +1,41 @@
+{
+  "name": "dyn-require",
+  "version": "0.0.1",
+  "description": "Dynamic loading Node.js modules from filesystem",
+  "author": {
+    "name": "Yaroslav Pogrebnyak",
+    "url": "http://pogrebnyak.info",
+    "email": "yyyaroslav@gmail.com"
+  },
+  "homepage": "http://github.com/yyyar/dyn-require",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yyyar/dyn-require.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yyyar/dyn-require/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.12"
+  },
+  "keywords": [
+    "require",
+    "modules",
+    "dynamic",
+    "scanner",
+    "directory"
+  ],
+  "main": "./lib/index",
+  "scripts": {
+    "test": "nodeunit tests --reporter verbose"
+  },
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "wrench": "^1.5.8"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.9.0"
+  }
+}
