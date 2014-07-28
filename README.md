@@ -1,4 +1,5 @@
 ### DynRequire
+Dynamic loading Node.js modules from filesystem
 
 #### Installation
 ```bash

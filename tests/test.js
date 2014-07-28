@@ -5,7 +5,13 @@
 
 var DynRequire = require('../lib');
 
+/* module exports */
+
 module.exports = {
+
+    /**
+     * Sync text
+     */
     'sync': function(test) {
 
         var modules = new DynRequire(__dirname + '/modules', {
@@ -13,11 +19,17 @@ module.exports = {
         });
 
         console.log(modules.requireAllEx());
+
         console.log(modules.require('child/a'));
+
         test.done();
     },
 
+    /**
+     * Astnc test
+     */
     'async': function(test) {
+
         var modules = new DynRequire(__dirname + '/modules', {
             async: true
         });
@@ -27,7 +39,7 @@ module.exports = {
         });
 
         modules.on('done', function(x) {
-            console.log("done", x);
+            console.log('done', x);
             test.done();
         });
     }
