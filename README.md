@@ -1,4 +1,7 @@
 ### DynRequire
+
+[![Build Status](https://travis-ci.org/yyyar/dyn-require.svg?branch=master)](https://travis-ci.org/yyyar/dyn-require) [![NPM version](https://badge.fury.io/js/dyn-require.svg)](http://badge.fury.io/js/dyn-require)
+
 Dynamic loading Node.js modules from filesystem
 
 #### Installation
