@@ -40,13 +40,24 @@ module.exports = {
 
         modules.on('next', function(relPath, m) {
             test.ok(m, relPath + ' module loaded');
-            test.ok( _.contains(EXPECTED_MODULES, relPath), 'Loaded expected module ' + relPath );
+            test.ok( _.includes(EXPECTED_MODULES, relPath), 'Loaded expected module ' + relPath );
         });
 
         modules.on('done', function(x) {
             test.ok(_.isEqual([], _.difference( _.keys(modules.requireAllEx()), EXPECTED_MODULES)), 'All modules are properly loaded');
             test.done();
         });
-    }
+    },
+
+    /**
+     * Relative path
+     */
+    'relative path': function(test) {
+
+        var modules = new DynRequire(__dirname + '/../tests/modules');
+
+        test.ok(_.isEqual([], _.difference( _.keys(modules.requireAllEx()), EXPECTED_MODULES)), 'All modules are properly loaded');
+        test.done();
+    },
 };
 
