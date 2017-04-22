@@ -21,7 +21,7 @@ $ npm install dyn-require
 ```javascript
 var DynRequire = require('dyn-require');
 
-var modules = new DynRequre(__dirname + '/modules');
+var modules = new DynRequire(__dirname + '/modules');
 
 /* get all modules as array */
 console.log( modules.requireAll() );
@@ -40,7 +40,7 @@ If using async method, DynRequire will emit two kind of messages: '`next'` on ne
 ```javascript
 var DynRequire = require('dyn-require');
 
-var modules = new DynRequre(__dirname + '/modules', {
+var modules = new DynRequire(__dirname + '/modules', {
     async: true
 });
 
@@ -53,7 +53,7 @@ modules.on('next', function(relPath, module) {
 modules.on('done', function(allModules, allModulesWithPaths) {
     console.log(allModules);
 
-    // Here you can use 
+    // Here you can use
     // modules.require and modules.requireAll, etc...
 });
 ```
@@ -63,4 +63,3 @@ modules.on('done', function(allModules, allModulesWithPaths) {
 
 #### License
 MIT
-
