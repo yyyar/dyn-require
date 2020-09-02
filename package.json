@@ -32,8 +32,9 @@
   },
   "readmeFilename": "README.md",
   "dependencies": {
-    "lodash": "^4.16.6",
-    "fs-extra": "^1.0.0"
+    "klaw": "^3.0.0",
+    "klaw-sync": "^6.0.0",
+    "lodash": "^4.16.6"
   },
   "devDependencies": {
     "nodeunit": "^0.10.2"

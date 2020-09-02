@@ -8,7 +8,8 @@ var _ = require('lodash'),
 
 /* constants */
 
-var EXPECTED_MODULES = ['a', 'child/a', 'another-child/c'];
+var EXPECTED_MODULES = ['a', 'child/a', 'another-child/c'],
+    EXPECTED_PARENT_MODULE = ['a'];
 
 /* module exports */
 
@@ -59,5 +60,18 @@ module.exports = {
         test.ok(_.isEqual([], _.difference( _.keys(modules.requireAllEx()), EXPECTED_MODULES)), 'All modules are properly loaded');
         test.done();
     },
+
+    /**
+     *
+     */
+    'recoursive false': function (test) {
+
+        var modules = new DynRequire(__dirname + '/../tests/modules', {
+            recoursive: false
+        });
+
+        test.ok(_.isEqual([], _.difference( _.keys(modules.requireAllEx()), EXPECTED_PARENT_MODULE)), 'All modules are properly loaded');
+        test.done();
+    }
 };
 
