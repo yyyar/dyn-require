@@ -64,10 +64,10 @@ module.exports = {
     /**
      *
      */
-    'recoursive false': function (test) {
+    'recursive false': function (test) {
 
         var modules = new DynRequire(__dirname + '/../tests/modules', {
-            recoursive: false
+            recursive: false
         });
 
         test.ok(_.isEqual([], _.difference( _.keys(modules.requireAllEx()), EXPECTED_PARENT_MODULE)), 'All modules are properly loaded');

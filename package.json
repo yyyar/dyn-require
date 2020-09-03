@@ -1,6 +1,6 @@
 {
   "name": "dyn-require",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Dynamic loading Node.js modules from filesystem",
   "author": {
     "name": "Yaroslav Pogrebnyak",
